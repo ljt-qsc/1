@@ -1,0 +1,228 @@
+\documentclass{beamer}
+
+\usepackage{fontspec,xunicode,xltxtra}
+
+\usepackage{tikz}
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+
+%\setmainfont[Mapping=tex-text]{AR PL UMing CN:style=Light}
+%\setmainfont[Mapping=tex-text]{AR PL UKai CN:style=Book}
+%\setmainfont[Mapping=tex-text]{WenQuanYi Zen Hei:style=Regular}
+%\setmainfont[Mapping=tex-text]{WenQuanYi Zen Hei Sharp:style=Regular}
+%\setmainfont[Mapping=tex-text]{AR PL KaitiM GB:style=Regular} 
+%\setmainfont[Mapping=tex-text]{AR PL SungtiL GB:style=Regular} 
+%\setmainfont[Mapping=tex-text]{WenQuanYi Zen Hei Mono:style=Regular} 
+
+\newfontfamily\hei{WenQuanYi Micro Hei}
+\newfontfamily\whei{WenQuanYi Zen Hei}
+\newfontfamily\kai{AR PL UKai CN}
+\newfontfamily\song{AR PL UMing CN}
+\newfontfamily\bhei{cwTeXHeiBold}
+%\newfontfamily\lishu{SIMLI}
+\setmainfont[Mapping=tex-text]{WenQuanYi Micro Hei}
+\setsansfont[Mapping=tex-text]{AR PL UKai CN}
+\setmonofont[Mapping=tex-text]{WenQuanYi Zen Hei Mono}
+
+\renewcommand{\baselinestretch}{1.25}
+
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % or ...
+  %\usetheme{default}
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+
+\usepackage[english]{babel}
+% or whatever
+
+%\usepackage[latin1]{inputenc}
+% or whatever
+
+\title[MS2023] % (optional, use only with long paper titles)
+{\Huge 数学软件}
+
+\subtitle
+{第一讲：准备工作} % (optional)
+
+\author[Wang HY] % (optional, use only with lots of authors)
+{王何宇}
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Zhejiang University] % (optional, but mostly needed)
+{
+  浙江大学数学科学学院\\
+  计算数学系
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[Short Occasion] % (optional)
+{}
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+\pgfdeclareimage[height=1cm]{university-logo}{images/zju.jpg}
+\logo{\pgfuseimage{university-logo}}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>{Outline}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+ \titlepage
+\end{frame}
+%\begin{frame}{Outline}
+%  \tableofcontents
+  % You might wish to add the option [pausesections]
+%\end{frame}
+
+\begin{frame}{自我介绍}
+  \begin{itemize}
+  \item 王何宇, 浙江大学数学科学学院, 信息与计算科学系.
+  \item email: wangheyu@zju.edu.cn
+  \item 手机: 13456940632
+  \item 我承担很多信息与计算方向的专业课程, 所以大概率会和大家共事 3 年甚至更多.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{使用计算机的基本原则}
+  \begin{itemize}
+  \item<1-> 用计算机提升你的工作和学习效率，而不是相反；
+  \item<2-> 白嫖使人快乐！ 
+  \item<3-> 参与和回馈社区；
+  \item<4-> 如果你是计算数学，应用数学和统计的同学，像重视黑板那样重视计算机；
+  \item<5-> 一切都在非线性变化，保持清醒和独立思考，只学对你现实有用的计算机技能。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{学习本课的基本条件}
+  \begin{itemize}
+  \item<1-> 一个可以正常运行的 Linux 系统, 可以是独立系统, 双系统, 云主机, 或虚拟机.
+  \item<2-> 能正确使用键盘, 打字速度不宜太低.
+  \item<3-> 未来计划走应用数学的发展方向.
+  \item<4-> 如果以上条件不能满足, 也不准备克服, 建议立刻退课或换课, 以免浪费时间.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{和计算机交流}
+  \begin{columns}[c]
+% create the column with the first image, that occupies
+% half of the slide
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+      \item<1-> 机器内部使用的是二进制数据流；
+      \item<2-> 使用 shell: 打开终端，输入命令，得到反馈；
+      \item<3-> 阅读和实现： Beginning Linux Programming 4th edtion, chapter 2.
+      \item<4-> 通过脚本实现自动化操作.
+      \end{itemize}
+    \end{column}
+% create the column with the second image, that also
+% occupies half of the slide
+    \begin{column}{.5\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics<1>[width=0.75\textwidth]{../images/matrix.bmp}
+        \includegraphics<1>[width=0.75\textwidth]{../images/blank.png}       
+        \includegraphics<2->[width=0.75\textwidth]{../images/matrixbin.png}
+        \includegraphics<2->[width=0.75\textwidth]{../images/shell.png}
+    \end{figure}
+    \end{column}
+\end{columns}
+  %% \begin{tikzpicture}
+  %%   \node (img1) {\includegraphics[height=3cm]{res/matrix.bmp}};
+  %% \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{文本编辑器}
+  \begin{itemize}
+  \item<1-> 能基本上完全用键盘控制.
+  \item<2-> 适合终端和 shell 的模式, 不占用太多的软硬件和通讯资源.
+  \item<3-> 能快速高效地发送和接受指令, 完成编码.
+  \item<4-> 推荐: emacs, vim, vscode.
+  \item<5-> 选择一款最适合你自己, 能把你的工作效率提到最高的编辑器.
+  \item<6-> 如果你不知道怎么配置你的编辑器, 用缺省配置, 或者像同行要一个配置文件. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{保存你的数据}
+  \begin{itemize}
+  \item<1-> 用正确的方式存放你的重要数据：
+    \begin{itemize}
+    \item<1-> 用云盘存放你的学习资料；
+    \item<1-> 用git仓库存放你的代码；
+    \end{itemize}
+  \item<2-> 程序员社区：github;
+    \begin{itemize}
+    \item<2-> 悲剧：被微软收购了；
+    \item<2-> 悲剧：不能稳定访问；
+    \item<2-> 替代品：gitee.
+    \end{itemize}
+  \item<3-> git, 一种代码管理方式；
+  \item<4-> 选择一个可靠的商业云盘，推荐坚果云。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{实际工作的例子：一个自己开发的小项目}
+  \begin{itemize}
+  \item<1-> 项目构成：程序源码，测试数据，测试结果，报告，幻灯片，参考文献...
+  \item<2-> 项目生成：程序编译，运行，报告编译
+  \item<3-> 项目管理：当某些源码或中间数据发生改变，需要及时更新
+  \item<4-> 项目发布：提交到git网站上。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{实际工作的例子：科学计算}
+  \begin{itemize}
+  \item<1-> 计算流体力学中的hello world: 方腔流
+  \item<2-> 寻找合适的文献和模拟平台
+  \item<3-> 构建代码，运行，测试
+  \item<4-> 用合适的工具分析，观察数据，形成报告
+  \item<5-> 现代计算机功能强大，即便是如此落后的虚拟机，也可以进行物理级别的模拟
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{作业}
+  自行查阅适当的资料，完成下述工作：
+  \begin{itemize}
+  \item 创建你的gitee帐号，创建一个叫math-soft的源，将其设成公开仓库
+  \item 在你的源内，增加一篇文档，名为：enviroment.tex，内容为对你参加课程学习的计算环境的描述，要求至少包含：
+    \begin{itemize}
+    \item 你的计算机型号，CPU型号，内存大小，硬盘大小，显卡型号 （指你真正的计算机）
+    \item 你的Linux实现方式：主系统，双系统还是虚拟机，或者其他。如果是虚拟机，描述一下虚拟机的内存大小和硬盘大小。
+    \item 你的Linux版本，和安装了哪些额外的软件（系统自带的不用列，自己安装的不论是否是我视频中有的尽量列出）。
+    \item 你的编辑器和你的gcc编译器的版本。
+    \item 用最多不超过200字评估一下你在未来的学习和工作中使用Linux环境工作的可能性和可能场景。
+    \item 文章应该能用latex编译通过，可以参考我的文件，注意字体需要安装。最后在学在浙大提交你的git源地址（gitee那个）。
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+
+
