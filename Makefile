@@ -1,31 +1,13 @@
+TEX_FILES := $(wildcard doc/*.tex)
+PDF_FILES := $(patsubst doc/%.tex,doc/%.pdf,$(TEX_FILES))
 
-all: $(PROJ).pdf $(GENDATA) $(PROJ) $(DATA) $(PROJ)_slide.pdf
+all: $(PDF_FILES)
 
-$(PROJ): $(PROJ).c
-	gcc -o $(PROJ) $(PROJ).c
-
-$(GENDATA): $(GENDATA).c
-	gcc -o $(GENDATA) $(GENDATA).c
-
-$(DATA): $(GENDATA)
-	./$(GENDATA)
-
-$(IMAGE): $(DATA)
-	gnuplot $(PROJ).gp
-
-$(PROJ).pdf: $(PROJ).tex $(IMAGE) $(REF)
-	xelatex $(PROJ)
-	bibtex $(PROJ)
-	xelatex $(PROJ)
-	xelatex $(PROJ)
-
-$(PROJ)_slide.pdf: $(PROJ)_slide.tex $(IMAGE)
-	xelatex $(PROJ)_slide
+doc/%.pdf: doc/%.tex
+	cd doc && xelatex $(notdir $<)
 
 clean:
-	cd doc
-	rm -rf *.aux *.bbl *.blg *.log *.out *.pdf *.toc \
-	*.nav *.snm
-	cd ..
+	rm -f doc/*.aux doc/*.log doc/*.pdf \
+	doc/*.toc doc/*.snm doc/*.nav doc/*.out
 
 .PHONY: all clean
